@@ -213,7 +213,11 @@ function! s:wrap(string,char,type,removed,special)
         let after = ''
       else
         let before = '<'.tag.attributes.'>'
-        let after  = '</'.substitute(tag,' .*','','').'>'
+        if get(b:, 'surround_empty_end_tag', get(g:, 'surround_empty_end_tag', 0))
+          let after  = '</>'
+        else
+          let after  = '</'.substitute(tag,' .*','','').'>'
+        endif
       endif
       if newchar == "\<C-T>"
         if type ==# "v" || type ==# "V"

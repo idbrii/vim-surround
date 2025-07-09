@@ -196,6 +196,15 @@ read this one a few times slowly before you understand it.
 Inputting text replacements is a proof of concept at this point. The ugly,
 unintuitive interface and the brevity of the documentation reflect this.
 
+                                                *surround_empty_end_tag*
+If your markup language uses <p>nameless closing tags</>, enable this setting
+in that buffer or globally to insert them instead of XML-style
+<p>named tags</p>:
+>
+  let b:surround_empty_end_tag = 1
+  let g:surround_empty_end_tag = 1
+<
+                                                *surround_insert_tail*
 Finally, It is possible to always append a string to surroundings in insert
 mode (and only insert mode).  This is useful with certain plugins and mappings
 that allow you to jump to such markings.
